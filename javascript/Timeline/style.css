@@ -49,7 +49,6 @@ h1 {
 }
 
 
-
 .timeline ul li div {
   position: relative;
   bottom: 0;
@@ -58,17 +57,79 @@ h1 {
   background: #F45B69;
 }
 
+
 time {
   display: block;
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 8px;
 }
+ /* AJOUTE -------------------------------- */
+.one{
+  left: 45px;
+}
+.one::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #E86361 transparent transparent;
+}
 
+.two {
+  left: -439px;
+}
+
+.two::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #E86361;
+}
+li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+div::before {
+  content: '';
+  position: absolute;
+  bottom: 7px;
+  border-style: solid;
+}
 
 /* EFFECTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+li::after {
+  transition:  .5s ease-in-out;
+}
 
+li.show::after {
+  background: #E86361;
+}
+div {
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s ease-in-out;
+}
+
+.one{
+  transform: translate3d(200px, 0, 0);
+}
+
+.two {
+  transform: translate3d(-200px, 0, 0);
+}
+
+li.show div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
 
 
 /* GENERAL MEDIA QUERIES
